@@ -1,11 +1,15 @@
 const imagen = document.getElementById('selectImg')
 
+function createElementAndSyle(tag, name){
+    
+}
 
 
-function imageZoom(imageID, outputID) {
+
+function imageZoom(imageElementId, outputID) {
 
     // get input and output by id
-    let image = document.getElementById(imageID);
+    let image = document.getElementById(imageElementId);
     let result = document.getElementById(outputID);
 
     // create lens element
@@ -23,7 +27,7 @@ function imageZoom(imageID, outputID) {
     /*Configura propiedades del background para el div resultante:*/
     result.style.backgroundImage = "url('" + image.src + "')";
     result.style.backgroundSize = (image.width * cx) + "px " + (image.height * cy) + "px";
-    // result.style.display='none'
+    result.style.display='none'
   
     // execute function to move mouse over image
     lens.addEventListener("mousemove", moveLens);
@@ -40,9 +44,9 @@ function imageZoom(imageID, outputID) {
       result.style.display='none'
     }
 
-    // image.addEventListener('mouseenter', mouseIn)
+    lens.addEventListener('mouseenter', mouseIn)
     
-    // image.addEventListener('mouseleave',mouseOut)
+    lens.addEventListener('mouseleave',mouseOut)
      
     // image.addEventListener('mouseleave', ()=>{
     //     console.log('over')
