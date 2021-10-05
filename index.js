@@ -1,5 +1,3 @@
-const imagen = document.getElementById('selectImg')
-
 
 function imageZoom(inputImageId, outputContentElementId) {
 
@@ -7,6 +5,8 @@ function imageZoom(inputImageId, outputContentElementId) {
     let conteiner = document.getElementById(outputContentElementId);
     conteiner.style.position = "relative";
     conteiner.style.display = "flex";
+    conteiner.style.boxSizing = "border-box";
+
 
     let image = document.getElementById(inputImageId);
     let a = image.getBoundingClientRect();

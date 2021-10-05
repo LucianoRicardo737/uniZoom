@@ -1,37 +1,11 @@
 
-*{
-}
+
 body{
     width: 100%;
-    height: 100%;
+    height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
-
-/* .img-zoom-container{
-  position: relative;
-  display: flex;
-} */
-
-
-/* .img-zoom-lens {
-  position: absolute;
-  width:110px;
-  height:110px;
-  z-index: 1;
-
-}
-
-
-.img-zoom-result {
-  border-radius: 3px;
-  height: 250px;
-  width: 240px;
-  position: absolute;
-  background: white;
-  background-repeat: no-repeat;
-}
- */
