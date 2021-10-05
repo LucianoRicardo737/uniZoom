@@ -1,31 +1,33 @@
 
 function imageZoom(inputImageId, outputContentElementId) {
 
-
+    // get container id
     let conteiner = document.getElementById(outputContentElementId);
+    // add style for container
     conteiner.style.position = "relative";
     conteiner.style.display = "flex";
     conteiner.style.boxSizing = "border-box";
 
-
+    // get image id
     let image = document.getElementById(inputImageId);
+    // get width and height image
     let a = image.getBoundingClientRect();
 
-
+    // create and style lens
     let lens = document.createElement("DIV");
     lens.style.position = "absolute";
     lens.style.height = `${a.height/2}px`;
     lens.style.width = `${a.width/2}px`;
     lens.style.zIndex = "1";
-
+    // insert lens
     image.parentElement.insertBefore(lens, image);
-
+    
     let cx = conteiner.offsetWidth / lens.offsetWidth;
     let cy = conteiner.offsetHeight / lens.offsetHeight;
-
+    // create result img with zoom
     let result = document.createElement("DIV");
-    result.id = 'myresult'
-
+ 
+    // add style
     result.style.height = `${a.height}px`;
     result.style.width = `${a.width}px`;
     result.style.position = "absolute";
@@ -34,9 +36,10 @@ function imageZoom(inputImageId, outputContentElementId) {
     result.style.backgroundImage = `url(${image.src})`;
     result.style.backgroundSize = `${image.width * cx}px ${image.height * cy}px`;
     result.style.display='none'
-
+    // insert result img
     conteiner.insertAdjacentElement('beforeend', result);
-
+    
+    
     lens.addEventListener("mousemove", moveLens);
     image.addEventListener("mousemove", moveLens);
 
@@ -54,7 +57,7 @@ function imageZoom(inputImageId, outputContentElementId) {
     lens.addEventListener('mouseenter', mouseIn)
     lens.addEventListener('mouseleave',mouseOut)
      
-
+      
     function moveLens(e) {
       e.preventDefault();
       
@@ -84,6 +87,7 @@ function imageZoom(inputImageId, outputContentElementId) {
 
     }
 
+    // Take mouse position function
     function getCursorPos(e) {
       e = e || window.event;
       let a = image.getBoundingClientRect();
