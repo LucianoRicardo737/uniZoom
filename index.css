@@ -11,13 +11,13 @@ body{
 }
 
 
-.img-zoom-container{
+/* .img-zoom-container{
   position: relative;
   display: flex;
-}
+} */
 
 
-.img-zoom-lens {
+/* .img-zoom-lens {
   position: absolute;
   width:110px;
   height:110px;
@@ -34,4 +34,4 @@ body{
   background: white;
   background-repeat: no-repeat;
 }
-
+ */

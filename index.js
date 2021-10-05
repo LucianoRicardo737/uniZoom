@@ -1,38 +1,45 @@
 const imagen = document.getElementById('selectImg')
 
-function createElementAndSyle(tag, name){
-    
-}
+
+function imageZoom(inputImageId, outputContentElementId) {
 
 
+    let conteiner = document.getElementById(outputContentElementId);
+    conteiner.style.position = "relative";
+    conteiner.style.display = "flex";
 
-function imageZoom(imageElementId, outputID) {
+    let image = document.getElementById(inputImageId);
+    let a = image.getBoundingClientRect();
 
-    // get input and output by id
-    let image = document.getElementById(imageElementId);
-    let result = document.getElementById(outputID);
 
-    // create lens element
     let lens = document.createElement("DIV");
-    // add class
-    lens.setAttribute("class", "img-zoom-lens");
+    lens.style.position = "absolute";
+    lens.style.height = `${a.height/2}px`;
+    lens.style.width = `${a.width/2}px`;
+    lens.style.zIndex = "1";
 
-    // insert lens
     image.parentElement.insertBefore(lens, image);
 
-    // take total width and height 
-    let cx = result.offsetWidth / lens.offsetWidth;
-    let cy = result.offsetHeight / lens.offsetHeight;
+    let cx = conteiner.offsetWidth / lens.offsetWidth;
+    let cy = conteiner.offsetHeight / lens.offsetHeight;
 
-    /*Configura propiedades del background para el div resultante:*/
-    result.style.backgroundImage = "url('" + image.src + "')";
-    result.style.backgroundSize = (image.width * cx) + "px " + (image.height * cy) + "px";
+    let result = document.createElement("DIV");
+    result.id = 'myresult'
+
+    result.style.height = `${a.height}px`;
+    result.style.width = `${a.width}px`;
+    result.style.position = "absolute";
+    result.style.background = "white";
+    result.style.backgroundRepeat = "no-repeat";
+    result.style.backgroundImage = `url(${image.src})`;
+    result.style.backgroundSize = `${image.width * cx}px ${image.height * cy}px`;
     result.style.display='none'
-  
-    // execute function to move mouse over image
+
+    conteiner.insertAdjacentElement('beforeend', result);
+
     lens.addEventListener("mousemove", moveLens);
     image.addEventListener("mousemove", moveLens);
-    // for mobile
+
     lens.addEventListener("touchmove", moveLens);
     image.addEventListener("touchmove", moveLens);
 
@@ -45,41 +52,43 @@ function imageZoom(imageElementId, outputID) {
     }
 
     lens.addEventListener('mouseenter', mouseIn)
-    
     lens.addEventListener('mouseleave',mouseOut)
      
-    // image.addEventListener('mouseleave', ()=>{
-    //     console.log('over')
-    //     result.style.display='none'
-    // })
+
     function moveLens(e) {
       e.preventDefault();
       
-      // take mouse position  
+      // Take mouse position  
       let pos = getCursorPos(e);
-      // take lens position
+      // Take lens position
       let x = pos.x - (lens.offsetWidth / 2);
       let y = pos.y - (lens.offsetHeight / 2);
       // Prevents lens from being positioned out of image 
-      if (x > image.width - lens.offsetWidth) {x = image.width - lens.offsetWidth;}
-      if (x < 0) {x = 0;}
-      if (y > image.height - lens.offsetHeight) {y = image.height - lens.offsetHeight;}
-      if (y < 0) {y = 0;}
-      /*configura la posición del lente:*/
-      lens.style.left = x + "px";
-      lens.style.top = y + "px";
-      /*muestra lo que el lente "ve":*/
-      result.style.backgroundPosition = "-" + (x * cx) + "px -" + (y * cy) + "px";
+      if (x > image.width - lens.offsetWidth) {
+        x = image.width - lens.offsetWidth;
+      }
+      if (x < 0) {
+        x = 0;
+      }
+      if (y > image.height - lens.offsetHeight) {
+        y = image.height - lens.offsetHeight;
+      }
+      if (y < 0) {
+        y = 0;
+      }
+      // Set lens position
+      lens.style.left = `${x}px`;
+      lens.style.top =`${y}px`;
+      // Set lens view
+      result.style.backgroundPosition = `-${(x * cx)}px -${(y * cy)}px`;
+
     }
 
     function getCursorPos(e) {
       e = e || window.event;
-      /*consigue posiciones 'x' e 'y' de la imagen:*/
       let a = image.getBoundingClientRect();
-      /*Calcula las coordenadas 'x' e 'y' del cursor relativo a la imagen:*/
       let x = e.pageX - a.left;
       let y = e.pageY - a.top;
-      /*considera cualquier 'scroll' sobre la página:*/
       x = x - window.pageXOffset;
       y = y - window.pageYOffset;
       return {x, y};
