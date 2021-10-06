@@ -98,3 +98,4 @@ function imageZoom(inputImageId, outputContentElementId) {
     }
   }
   
+  module.exports = imageZoom;
