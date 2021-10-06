@@ -1,5 +1,5 @@
 
-function imageZoom(inputImageId, outputContentElementId) {
+function uniZoom(inputImageId, outputContentElementId) {
 
     // get container id
     let conteiner = document.getElementById(outputContentElementId);
@@ -98,4 +98,4 @@ function imageZoom(inputImageId, outputContentElementId) {
     }
   }
   
-  module.exports = imageZoom;
+  module.exports = uniZoom;

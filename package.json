@@ -2,7 +2,7 @@
   "name": "unizoom",
   "version": "1.0.0",
   "description": "Zoom for images when mouse position over. ",
-  "main": "index.js",
+  "main": "uniZoom.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
