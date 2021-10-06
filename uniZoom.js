@@ -1,15 +1,15 @@
 
-function uniZoom(inputImageId, outputContentElementId) {
+function uniZoom(imageSelector, outputSelector) {
 
-    // get container id
-    let conteiner = document.getElementById(outputContentElementId);
+    // get container selector
+    let conteiner = document.querySelector(outputSelector);
     // add style for container
     conteiner.style.position = "relative";
     conteiner.style.display = "flex";
     conteiner.style.boxSizing = "border-box";
 
-    // get image id
-    let image = document.getElementById(inputImageId);
+    // get image selector
+    let image = document.querySelector(imageSelector);
     // get width and height image
     let a = image.getBoundingClientRect();
 
