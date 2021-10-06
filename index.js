@@ -57,10 +57,9 @@ function imageZoom(inputImageId, outputContentElementId) {
     lens.addEventListener('mouseenter', mouseIn)
     lens.addEventListener('mouseleave',mouseOut)
      
-      
+
     function moveLens(e) {
       e.preventDefault();
-      
       // Take mouse position  
       let pos = getCursorPos(e);
       // Take lens position
