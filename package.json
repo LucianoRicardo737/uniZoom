@@ -1,5 +1,5 @@
 {
-  "name": "zoomimg",
+  "name": "uniZoom",
   "version": "1.0.0",
   "description": "Zoom for images when mouse position over. ",
   "main": "index.js",
