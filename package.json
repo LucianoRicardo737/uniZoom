@@ -1,6 +1,6 @@
 {
   "name": "unizoom",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "Zoom for images when mouse position over. ",
   "main": "uniZoom.js",
   "scripts": {
