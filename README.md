@@ -8,7 +8,7 @@ Unizoom.js with function necessary and example folder for testing library.
 If you want to see the demo of this proyect deployed, you can visit [Demo of the proyect](https://unizoom.labler.com.ar/)
 
 ## Preview
-![](/img.jpg)
+![](/img.png)
 ![](/imageZoom.jpg)
 
 
