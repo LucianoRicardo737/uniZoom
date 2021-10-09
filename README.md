@@ -11,4 +11,5 @@ If you want to see the demo of this proyect deployed, you can visit [Demo of the
 ![](/images/prev.jpg)
 ![](/images//imageZoom.jpg)
 
-
+## How you use it
+The function uniZoom receive two parameters for now. The image selector and output selector. On the first you have select the image for zoom and on the second the container where new element mounted. 
